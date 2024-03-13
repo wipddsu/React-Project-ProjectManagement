@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <main className="flex">
+    <main className="flex flex-row h-screen">
       <Sidebar />
       <Content />
     </main>
