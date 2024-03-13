@@ -1,12 +1,12 @@
-import Main from './components/Main';
+import Content from './components/Content';
 import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <>
+    <main className="flex">
       <Sidebar />
-      <Main />
-    </>
+      <Content />
+    </main>
   );
 }
 

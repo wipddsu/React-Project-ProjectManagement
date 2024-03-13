@@ -1,12 +1,11 @@
 import ProjectInfo from './ProjectInfo';
 import Tasks from './Tasks';
 
-export default function Main() {
+export default function Content() {
   return (
-    <main>
-      메인
+    <section>
       <ProjectInfo />
       <Tasks />
-    </main>
+    </section>
   );
 }
