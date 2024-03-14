@@ -5,7 +5,7 @@ import Empty from './Empty';
 export default function Main({ projects, isNewProject }) {
   let result;
   if (isNewProject) {
-    result = <NewProject />;
+    result = <NewProject isNewProject={isNewProject} />;
   } else {
     if (projects && projects.length > 0) {
       result = <Content />;

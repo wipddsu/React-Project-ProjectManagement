@@ -3,7 +3,7 @@ export default function Tasks() {
     <div>
       <h3 className="text-2xl">Tasks</h3>
       <div>
-        <input type="text" />
+        <input type="text" id="text" name="text" />
         <button>Add Task</button>
       </div>
       <ul>
