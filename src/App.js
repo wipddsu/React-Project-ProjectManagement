@@ -1,39 +1,9 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
-import Content from './components/Content';
-import NewProject from './components/NewProject';
-import Empty from './components/Empty';
-
-const initialProject = [
-  {
-    title: 'my first app',
-    description: 'asldkasl a;skldas  as;d',
-    date: Date.now(),
-    tasks: ['as', 'efa', 'easfdasd'],
-  },
-  {
-    title: 'my first app22',
-    description: 'asldkasl a;skldas  as;d',
-    date: Date.now(),
-    tasks: ['as', 'efa', 'easfdasd'],
-  },
-  {
-    title: 'my first app333',
-    description: 'asldkasl a;skldas  as;d',
-    date: Date.now(),
-    tasks: ['as', 'efa', 'easfdasd'],
-  },
-  {
-    title: 'my first app4444',
-    description: 'asldkasl a;skldas  as;d',
-    date: Date.now(),
-    tasks: ['as', 'efa', 'easfdasd'],
-  },
-];
 
 function App() {
-  const [projects, setProjects] = useState(initialProject);
+  const [projects, setProjects] = useState([]);
   const [isNewProject, setIsNewProject] = useState(false);
   const [projectIndex, setProjectIndex] = useState(0);
 
@@ -43,6 +13,8 @@ function App() {
 
   function handleCreateProject(e) {
     e.preventDefault();
+    const length = projects.length;
+
     setProjects((prevProjects) => {
       const newDate = new Date(e.target.date.value);
       const options = {
@@ -61,6 +33,8 @@ function App() {
         },
       ];
     });
+    setIsNewProject(false);
+    setProjectIndex(length);
   }
 
   function handleDeleteProject(projectIndex) {

@@ -1,6 +1,3 @@
-import ProjectList from './ProjectList';
-import { forwardRef } from 'react';
-
 export default function Sidebar({ onAddClick, onIndexClick, projects, isNewProject }) {
   return (
     <section className="flex-auto w-1/4 h-full bg-indigo-950 py-20 px-10">

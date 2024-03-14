@@ -1,9 +1,10 @@
 export default function Empty() {
   return (
-    <section className="flex justify-center flex-auto w-3/4 h-full py-20 px-10">
-      <p>
-        <span>There're no projects</span>
+    <div className="flex flex-row justify-center h-full items-center">
+      <p className="text-2xl text-indigo-900 text-center leading-normal">
+        There are no projects. <br />
+        Add your project!
       </p>
-    </section>
+    </div>
   );
 }
