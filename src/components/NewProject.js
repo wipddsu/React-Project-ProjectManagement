@@ -40,7 +40,7 @@ export default function NewProject({ onClick, onSubmit }) {
           </div>
           <div className="mb-5">
             <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900 uppercase">
-              date
+              due date
             </label>
             <div className="relative mt-2 rounded-md shadow-sm">
               <input
