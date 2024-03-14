@@ -1,4 +1,5 @@
 import ProjectList from './ProjectList';
+import { forwardRef } from 'react';
 
 export default function Sidebar({ onAddClick, onIndexClick, projects, isNewProject }) {
   return (

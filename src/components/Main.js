@@ -1,18 +1,25 @@
 import Content from './Content';
 import NewProject from './NewProject';
-import Empty from './Empty';
+import { forwardRef, useState } from 'react';
 
-export default function Main({ projects, isNewProject }) {
-  let result;
+export default function Main({
+  projects,
+  isNewProject,
+  projectIndex,
+  onDelete,
+  onCancelClick,
+  onProjectSubmit,
+  onTaskSubmit,
+}) {
+  let projectRender;
+
   if (isNewProject) {
-    result = <NewProject isNewProject={isNewProject} />;
+    projectRender = <NewProject onCancelClick={onCancelClick} onSubmit={onProjectSubmit} />;
   } else {
-    if (projects && projects.length > 0) {
-      result = <Content />;
-    } else {
-      result = <Empty />;
-    }
+    projectRender = (
+      <Content projects={projects} projectIndex={projectIndex} onDelete={onDelete} onSubmit={onTaskSubmit} />
+    );
   }
 
-  return result;
+  return projectRender;
 }

@@ -1,9 +1,9 @@
-export default function NewProject({ onClick, onSubmit }) {
+export default function NewProject({ onCancelClick, onSubmit }) {
   return (
     <section className="flex-auto w-3/4 h-full py-20 px-10">
       <form onSubmit={(e) => onSubmit(e)}>
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button onClick={onClick} type="button" className="text-sm font-semibold leading-6 text-gray-900">
+          <button onClick={onCancelClick} type="button" className="text-sm font-semibold leading-6 text-gray-900">
             Cancel
           </button>
           <button className="rounded-md bg-indigo-600 px-8 py-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
