@@ -39,11 +39,7 @@ function App() {
 
   function handleDeleteProject(projectIndex) {
     setProjects((prevProjects) => {
-      const projects = [
-        ...prevProjects.filter((project, index) => {
-          return projectIndex !== index;
-        }),
-      ];
+      const projects = [...prevProjects.filter((project, index) => projectIndex !== index)];
 
       return projects;
     });
@@ -70,7 +66,18 @@ function App() {
     });
   }
 
-  function handleDeleteTask() {}
+  function handleDeleteTask(taskIndex) {
+    setProjects((prevProjects) => {
+      const projects = [
+        ...prevProjects.map((project) => ({
+          ...project,
+          tasks: [...project.tasks].filter((task, index) => taskIndex !== index),
+        })),
+      ];
+
+      return projects;
+    });
+  }
 
   function handleProjectIndex(index) {
     setProjectIndex(() => index);
@@ -89,7 +96,8 @@ function App() {
         projects={projects}
         isNewProject={isNewProject}
         projectIndex={projectIndex}
-        onDelete={handleDeleteProject}
+        onProjectDelete={handleDeleteProject}
+        onTaskDelete={handleDeleteTask}
         onCancelClick={handleIsNewProject}
         onProjectSubmit={handleCreateProject}
         onTaskSubmit={handleCreateTask}

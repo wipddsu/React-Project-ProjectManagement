@@ -6,7 +6,8 @@ export default function Main({
   projects,
   isNewProject,
   projectIndex,
-  onDelete,
+  onProjectDelete,
+  onTaskDelete,
   onCancelClick,
   onProjectSubmit,
   onTaskSubmit,
@@ -17,7 +18,13 @@ export default function Main({
     projectRender = <NewProject onCancelClick={onCancelClick} onSubmit={onProjectSubmit} />;
   } else {
     projectRender = (
-      <Content projects={projects} projectIndex={projectIndex} onDelete={onDelete} onSubmit={onTaskSubmit} />
+      <Content
+        projects={projects}
+        projectIndex={projectIndex}
+        onProjectDelete={onProjectDelete}
+        onTaskDelete={onTaskDelete}
+        onSubmit={onTaskSubmit}
+      />
     );
   }
 

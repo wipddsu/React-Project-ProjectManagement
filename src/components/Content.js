@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Empty from './Empty';
 
-export default function Content({ projects, projectIndex, onSubmit, onDelete }) {
+export default function Content({ projects, projectIndex, onSubmit, onProjectDelete, onTaskDelete }) {
   const project = projects.filter((p, index) => index === projectIndex)[0];
   const [taskInput, setTaskInput] = useState('');
 
@@ -19,7 +19,7 @@ export default function Content({ projects, projectIndex, onSubmit, onDelete }) 
                 <h2 className="text-3xl">{project.title}</h2>
                 <span>{project.date}</span>
               </div>
-              <button onClick={() => onDelete(projectIndex)}>Delete</button>
+              <button onClick={() => onProjectDelete(projectIndex)}>Delete</button>
             </div>
             <p>{project.description}</p>
           </div>
@@ -38,7 +38,7 @@ export default function Content({ projects, projectIndex, onSubmit, onDelete }) 
               {project.tasks.map((task, index) => (
                 <li key={index} className="flex flex-row justify-between">
                   {task}
-                  <button>Delete</button>
+                  <button onClick={() => onTaskDelete(index)}>Delete</button>
                 </li>
               ))}
             </ul>
