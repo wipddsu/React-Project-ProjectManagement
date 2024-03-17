@@ -94,17 +94,13 @@ function App() {
     cancelCreate: handleIsNewProject,
     taskSubmit: handleCreateTask,
     taskDelete: handleDeleteTask,
+    selectProject: handleProjectIndex,
   };
 
   return (
     <ProjectsContext.Provider value={ctxValue}>
       <main className="flex flex-row h-screen">
-        <Sidebar
-          onAddClick={handleIsNewProject}
-          onIndexClick={handleProjectIndex}
-          projects={projects}
-          isNewProject={isNewProject}
-        />
+        <Sidebar onAddClick={handleIsNewProject} isNewProject={isNewProject} />
         <Main isNewProject={isNewProject} />
       </main>
     </ProjectsContext.Provider>
