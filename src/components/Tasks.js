@@ -11,7 +11,8 @@ export default function Tasks({ project, projectIndex }) {
   }
 
   return (
-    <>
+    <div id="tasks" className="mt-7">
+      <h3 className="text-2xl">Tasks</h3>
       <form
         onSubmit={(e) => {
           taskSubmit(e, projectIndex, taskInput);
@@ -35,12 +36,12 @@ export default function Tasks({ project, projectIndex }) {
         {project.tasks.map((task, index) => (
           <li key={index} className="flex flex-row justify-between p-6 bg-slate-100 mb-4 rounded">
             {task}
-            <button onClick={() => taskDelete(index)} className="text-stone-500 hover:text-stone-800">
-              Delete
+            <button onClick={() => taskDelete(index)} className="text-stone-500 hover:text-red-500">
+              Clear
             </button>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

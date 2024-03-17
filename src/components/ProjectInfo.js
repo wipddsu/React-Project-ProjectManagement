@@ -6,7 +6,7 @@ export default function ProjectInfo({ project, projectIndex }) {
   const { projectDelete } = useContext(ProjectsContext);
 
   return (
-    <>
+    <div id="projectInfo" className="pb-7 border-b border-b-slate-200">
       <div className="flex felx-row justify-between">
         <div>
           <h2 className="text-3xl mb-3 font-bold">{project.title}</h2>
@@ -21,6 +21,6 @@ export default function ProjectInfo({ project, projectIndex }) {
       <p className="mt-7 leading-normal" style={{ whiteSpace: 'pre-line' }}>
         {project.description}
       </p>
-    </>
+    </div>
   );
 }
