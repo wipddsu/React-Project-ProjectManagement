@@ -7,4 +7,5 @@ export const ProjectsContext = createContext({
   projectDelete: () => {},
   taskSubmit: () => {},
   taskDelete: () => {},
+  selectProject: () => {},
 });
