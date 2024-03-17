@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 
+import { ProjectsContext } from './store/projects-context';
+
 function App() {
   const [projects, setProjects] = useState([]);
   const [isNewProject, setIsNewProject] = useState(false);
@@ -84,25 +86,30 @@ function App() {
     setIsNewProject(false);
   }
 
+  const ctxValue = {
+    taskSubmit: handleCreateTask,
+    taskDelete: handleDeleteTask,
+  };
+
   return (
-    <main className="flex flex-row h-screen">
-      <Sidebar
-        onAddClick={handleIsNewProject}
-        onIndexClick={handleProjectIndex}
-        projects={projects}
-        isNewProject={isNewProject}
-      />
-      <Main
-        projects={projects}
-        isNewProject={isNewProject}
-        projectIndex={projectIndex}
-        onProjectDelete={handleDeleteProject}
-        onTaskDelete={handleDeleteTask}
-        onCancelClick={handleIsNewProject}
-        onProjectSubmit={handleCreateProject}
-        onTaskSubmit={handleCreateTask}
-      />
-    </main>
+    <ProjectsContext.Provider value={ctxValue}>
+      <main className="flex flex-row h-screen">
+        <Sidebar
+          onAddClick={handleIsNewProject}
+          onIndexClick={handleProjectIndex}
+          projects={projects}
+          isNewProject={isNewProject}
+        />
+        <Main
+          projects={projects}
+          isNewProject={isNewProject}
+          projectIndex={projectIndex}
+          onProjectDelete={handleDeleteProject}
+          onCancelClick={handleIsNewProject}
+          onProjectSubmit={handleCreateProject}
+        />
+      </main>
+    </ProjectsContext.Provider>
   );
 }
 
