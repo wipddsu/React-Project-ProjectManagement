@@ -1,31 +1,13 @@
 import Content from './Content';
 import NewProject from './NewProject';
-import { forwardRef, useState } from 'react';
 
-export default function Main({
-  projects,
-  isNewProject,
-  projectIndex,
-  onProjectDelete,
-  onTaskDelete,
-  onCancelClick,
-  onProjectSubmit,
-  onTaskSubmit,
-}) {
+export default function Main({ isNewProject }) {
   let projectRender;
 
   if (isNewProject) {
-    projectRender = <NewProject onCancelClick={onCancelClick} onSubmit={onProjectSubmit} />;
+    projectRender = <NewProject />;
   } else {
-    projectRender = (
-      <Content
-        projects={projects}
-        projectIndex={projectIndex}
-        onProjectDelete={onProjectDelete}
-        onTaskDelete={onTaskDelete}
-        onSubmit={onTaskSubmit}
-      />
-    );
+    projectRender = <Content />;
   }
 
   return projectRender;

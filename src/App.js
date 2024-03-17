@@ -87,6 +87,11 @@ function App() {
   }
 
   const ctxValue = {
+    projects: projects,
+    projectIndex: projectIndex,
+    projectCreate: handleCreateProject,
+    projectDelete: handleDeleteProject,
+    cancelCreate: handleIsNewProject,
     taskSubmit: handleCreateTask,
     taskDelete: handleDeleteTask,
   };
@@ -100,14 +105,7 @@ function App() {
           projects={projects}
           isNewProject={isNewProject}
         />
-        <Main
-          projects={projects}
-          isNewProject={isNewProject}
-          projectIndex={projectIndex}
-          onProjectDelete={handleDeleteProject}
-          onCancelClick={handleIsNewProject}
-          onProjectSubmit={handleCreateProject}
-        />
+        <Main isNewProject={isNewProject} />
       </main>
     </ProjectsContext.Provider>
   );

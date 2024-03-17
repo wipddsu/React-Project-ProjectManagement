@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import Tasks from './Tasks';
 import Empty from './Empty';
+import ProjectInfo from './ProjectInfo';
 
-export default function Content({ projects, projectIndex, onProjectDelete }) {
+import { ProjectsContext } from '../store/projects-context';
+
+export default function Content() {
+  const { projects, projectIndex } = useContext(ProjectsContext);
   const project = projects.filter((p, index) => index === projectIndex)[0];
 
   return (
@@ -10,20 +14,7 @@ export default function Content({ projects, projectIndex, onProjectDelete }) {
       {projects.length > 0 ? (
         <>
           <div id="projectInfo" className="pb-7 border-b border-b-slate-200">
-            <div className="flex felx-row justify-between">
-              <div>
-                <h2 className="text-3xl mb-3 font-bold">{project.title}</h2>
-                <span className="text-stone-500">{project.date}</span>
-              </div>
-              <div className="flex flex-row items-start">
-                <button onClick={() => onProjectDelete(projectIndex)} className="text-stone-500 hover:text-stone-800">
-                  Delete
-                </button>
-              </div>
-            </div>
-            <p className="mt-7 leading-normal" style={{ whiteSpace: 'pre-line' }}>
-              {project.description}
-            </p>
+            <ProjectInfo project={project} projectIndex={projectIndex} />
           </div>
           <div id="tasks" className="mt-7">
             <h3 className="text-2xl">Tasks</h3>
