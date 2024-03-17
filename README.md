@@ -9,6 +9,6 @@
 - 태스크 생성
 - 태스크 삭제
 
-# Description
+## Description
 
 코드 가독성을 높이기 위해 최대한 컴포넌트를 분리하였습니다. 컴포넌트를 분리함에 따라 발생하는 prop drilling을 피하고자 context API를 사용해 코드를 정리하였습니다.
